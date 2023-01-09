@@ -1,25 +1,25 @@
  
 # Maintainer: Nikhil Alex <nikhil.wtp@gmail.com>
 
-pkgname='vmware-horizon-client-8'
-pkgver=2206
-_build1=8.6.0
-_build2=20094634
-_cart='CART23FQ2_LIN_2206_TARBALL'
+pkgname='vmware-horizon-client-8-custom'
+pkgver=2209
+_build1=8.7.0
+_build2=20616018
+_cart='CART23FQ3_LIN_2209_TARBALL'
 pkgrel=1
 pkgdesc='VMware Horizon Client for Linux'
 arch=('x86_64')
 url='https://www.vmware.com/go/viewclients'
 license=('custom')
 source=("https://download3.vmware.com/software/${_cart}/VMware-Horizon-Client-Linux-${pkgver}-${_build1}-${_build2}.tar.gz")
-sha256sums=(9819eae5708bf0d71156b81283e3a70100e2e22de9db827a8956ca8e83b2414a)
+sha256sums=(222b645318cb67484a68810fae1209041462c1c8fb2b3e1a45f219dfba57c374)
 
 prepare() {
     cd "${srcdir}/VMware-Horizon-Client-Linux-${pkgver}-${_build1}-${_build2}/x64/"
     tar xzvf VMware-Horizon-Client-${pkgver}-${_build1}-${_build2}.x64.tar.gz
     tar xzvf VMware-Horizon-PCoIP-${pkgver}-${_build1}-${_build2}.x64.tar.gz
     tar xzvf VMware-Horizon-html5mmr-${pkgver}-${_build1}-${_build2}.x64.tar.gz
-    tar xzvf VMware-Horizon-TeamsOptimization-${pkgver}-${_build1}-${_build2}.x64.tar.gz
+#     tar xzvf VMware-Horizon-TeamsOptimization-${pkgver}-${_build1}-${_build2}.x64.tar.gz
 }
 
 package() {
@@ -37,6 +37,6 @@ package() {
     cp -a lib "${pkgdir}/usr/"
     cd "${srcdir}/VMware-Horizon-Client-Linux-${pkgver}-${_build1}-${_build2}/x64/VMware-Horizon-html5mmr-${pkgver}-${_build1}-${_build2}.x64"
     cp -a lib "${pkgdir}/usr/"
-    cd "${srcdir}/VMware-Horizon-Client-Linux-${pkgver}-${_build1}-${_build2}/x64/VMware-Horizon-TeamsOptimization-${pkgver}-${_build1}-${_build2}.x64"
-    cp -a lib "${pkgdir}/usr/"
+#     cd "${srcdir}/VMware-Horizon-Client-Linux-${pkgver}-${_build1}-${_build2}/x64/VMware-Horizon-TeamsOptimization-${pkgver}-${_build1}-${_build2}.x64"
+#     cp -a lib "${pkgdir}/usr/"
 }
